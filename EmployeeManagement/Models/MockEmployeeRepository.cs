@@ -26,5 +26,12 @@ namespace EmployeeManagement.Models
         {
             return _emloyeeList;
         }
+
+        public Employee Add(Employee employee)
+        {
+            employee.Id=_emloyeeList.Max(e => e.Id) + 1;
+            _emloyeeList.Add(employee);
+            return employee;
+        }
     }
 }
