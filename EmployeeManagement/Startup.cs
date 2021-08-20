@@ -53,7 +53,7 @@ namespace EmployeeManagement
             //app.UseMvcWithDefaultRoute();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "EmployeeManagement/{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
             app.UseCookiePolicy();
 

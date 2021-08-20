@@ -16,6 +16,7 @@ namespace EmployeeManagement.Controllers
             _employeeRepository = employeeRepository;
         }
         [Route("")]
+        [Route("Home")]
         public ViewResult Index()
         {
             var model= _employeeRepository.GetAllEmployee();
@@ -30,6 +31,10 @@ namespace EmployeeManagement.Controllers
             };
 
             return View(homeDetailsViewModel);
+        }
+        public ViewResult Create()
+        {
+            return View();
         }
     }
 }
