@@ -49,12 +49,12 @@ namespace EmployeeManagement.Controllers
             if (ModelState.IsValid)
             {
                 string uniqueFileName = null;
-                if (model.Photo != null)
+                if (model.Photos != null)
                 {
                     string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photo.FileName;
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Photos.FileName;
                     string filePath=Path.Combine(uploadsFolder, uniqueFileName);
-                    model.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
+                    model.Photos.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
 
                 Employee newEmployee = new Employee
