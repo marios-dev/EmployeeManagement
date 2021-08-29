@@ -72,16 +72,21 @@ namespace EmployeeManagement.Controllers
                 {
                     if (model.ExistingPhotoPath != null)
                     {
-                        string filePath = Path.Combine(hostingEnvironment.WebRootPath,
-                            "images", model.ExistingPhotoPath);
-                        System.IO.File.Delete(filePath);
+                        if (model.ExistingPhotoPath!=null)
+                        {
+                            string filePath = Path.Combine(hostingEnvironment.WebRootPath, 
+                                "images", model.ExistingPhotoPath);
+                            System.IO.File.Delete(filePath);
+                        }
+                        employee.PhotoPath = ProcessUploadFile(model);
                     }
-                    employee.PhotoPath = ProcessUploadFile(model);
+                    
                 }
-                Employee updatedEmployee = _employeeRepository.Update(employee);
+
+                _employeeRepository.Update(employee);
                 return RedirectToAction("index");
             }
-            return View(model);
+            return View();
         }
 
         private string ProcessUploadFile(EmployeeCreateViewModel model)
