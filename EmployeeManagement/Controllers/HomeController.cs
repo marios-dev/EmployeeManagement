@@ -31,7 +31,6 @@ namespace EmployeeManagement.Controllers
         }
         public ViewResult Details(int? id)
         {
-            throw new Exception("Error in details");
             Employee employee = _employeeRepository.GetEmployee(id.Value);
             if (employee==null)
             {
@@ -93,7 +92,7 @@ namespace EmployeeManagement.Controllers
                 _employeeRepository.Update(employee);
                 return RedirectToAction("index");
             }
-            return View();
+            return View(); 
         }
 
         private string ProcessUploadFile(EmployeeCreateViewModel model)
