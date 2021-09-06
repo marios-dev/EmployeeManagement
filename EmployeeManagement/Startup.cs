@@ -46,14 +46,15 @@ namespace EmployeeManagement
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
             else
             {
-                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+                
             }
             app.UseStaticFiles();
-            //app.UseMvcWithDefaultRoute();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
