@@ -31,6 +31,7 @@ namespace EmployeeManagement.Controllers
         }
         public ViewResult Details(int? id)
         {
+            throw new Exception("Error in details");
             Employee employee = _employeeRepository.GetEmployee(id.Value);
             if (employee==null)
             {

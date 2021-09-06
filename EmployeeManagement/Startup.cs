@@ -46,13 +46,14 @@ namespace EmployeeManagement
 
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
-                app.UseStatusCodePagesWithReExecute("/Error/{0}");
+                app.UseDeveloperExceptionPage();
             }
             else
             {
-                
+                app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
             }
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -60,9 +61,6 @@ namespace EmployeeManagement
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
             app.UseCookiePolicy();
-
-
-
         }
     }
 }
