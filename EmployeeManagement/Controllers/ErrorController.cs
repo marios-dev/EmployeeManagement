@@ -13,6 +13,7 @@ namespace EmployeeManagement.Controllers
     {
         private readonly ILogger<ErrorController> logger;
 
+        
         public ErrorController(ILogger<ErrorController> logger)
         {
             this.logger = logger;
